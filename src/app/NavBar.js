@@ -58,7 +58,7 @@ const NavBar = () => {
     <nav suppressHydrationWarning className="bg-white rounded-lg shadow bg-gray-900/50 m-4 fixed top-0 left-0 right-0 border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="flex items-center space-x-3 rtl:space-x-reverse">
-          <a href="https://somtum.fun">
+          <a href="/">
             <img src="https://pla-ra.xyz/static/images/somtum.png" className="h-8" alt="Logo" />
           </a>
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
