@@ -26,17 +26,27 @@ export default function Footer() {
                 alt="Discord logo"
                 className="h-4 w-4 me-2 filter"
               />
-              <a href="#" className="hover:underline me-4 md:me-6">
+              <a href="https://discord.gg/FANdkPJZZT" className="hover:underline me-4 md:me-6">
                 Discord
               </a>
             </li>
-            <li>
+            <li className="flex items-center">
+              <img
+                src="/youtube.svg"
+                alt="Youtube logo"
+                className="h-4 w-4 me-2"
+              />
               <a href="#" className="hover:underline me-4 md:me-6">
                 YouTube
               </a>
             </li>
-            <li>
-              <a href="#" className="hover:underline">
+            <li className="flex items-center">
+              <img
+                src="/twitter.svg"
+                alt="Twitter logo"
+                className="h-4 w-4 me-2"
+              />
+              <a href="#" className="hover:underline me-4 md:me-6">
                 Twitter
               </a>
             </li>
