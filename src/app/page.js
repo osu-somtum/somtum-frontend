@@ -1,4 +1,3 @@
-import Image from "next/image";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
@@ -25,7 +24,7 @@ export default function Home() {
           <h2 className="font-bold text-2xl text-white">Featured YouTube Clip</h2>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/0YOiluuZI7E" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"></iframe>
         </section> */}
-        
+
       </main>
       <Footer />
     </div>
