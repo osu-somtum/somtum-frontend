@@ -7,6 +7,9 @@ const config = {
     twitterLink: process.env.NEXT_PUBLIC_TWITTER_LINK || "https://twitter.com/idk",
     youtubeLink: process.env.NEXT_PUBLIC_YOUTUBE_LINK || "https://www.youtube.com/yt",
     logoLink: process.env.NEXT_PUBLIC_LOGO_LINK || "/somtum.jpg",
+
+    brandName: process.env.NEXT_PUBLIC_BRAND_NAME || "osu!somtum",
+    brandDescription: process.env.NEXT_PUBLIC_BRAND_DESCRIPTION || "osu!somtum - Private osu! Server!",
   };
   
 export default config;

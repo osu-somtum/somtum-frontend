@@ -13,17 +13,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const { logoLink } = config;
+const { logoLink, brandName, brandDescription } = config;
 
 export const metadata = {
 
-  title: "osu!somtum",
-  description: "osu!somtum - Private osu! Server!",
-  image: {logoLink},
+  title: brandName,
+  description: brandDescription,
+  image: {url: logoLink, alt: 'Logo'},
   openGraph: {
-    title: 'osu!somtum',
-    description: "osu!somtum - Private osu! Server!",
-    image: {logoLink},
+    title: brandName,
+    description: brandDescription,
+    image: {url: logoLink, alt: 'Logo'},
   }
 };
 

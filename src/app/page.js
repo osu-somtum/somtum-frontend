@@ -7,7 +7,7 @@ import InternalError from "./InternalError";
 import config from "./config";
 
 export default function Home() {
-  const { baseAPIUrl, mainUrl, discordInviteLink, logoLink } = config;
+  const { baseAPIUrl, mainUrl, discordInviteLink, logoLink, brandName } = config;
 
   const [playerCounts, setPlayerCounts] = useState({
     onlinePlayers: 0,
@@ -51,7 +51,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center">
       <img src={logoLink} className="h-[10.5rem] w-auto" alt="Logo" />
         <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-center font-[family-name:var(--font-geist-mono)]">
-          <li>Welcome to osu!somtum. i dont know what to put here</li>
+          <li>Welcome to {brandName}. i dont know what to put here</li>
           <li>Save and see your changes instantly.</li>
           <li>
             Join our <a className="bg-gradient-to-br from-[#5865F2] to-[#57F287] text-transparent bg-clip-text text-white" href={discordInviteLink}>Discord Server</a>{" "}for the latest updates!
