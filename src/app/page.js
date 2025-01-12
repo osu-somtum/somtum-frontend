@@ -7,7 +7,7 @@ import InternalError from "./InternalError";
 import config from "./config";
 
 export default function Home() {
-  const { baseAPIUrl, mainUrl, discordInviteLink } = config;
+  const { baseAPIUrl, mainUrl, discordInviteLink, logoLink } = config;
 
   const [playerCounts, setPlayerCounts] = useState({
     onlinePlayers: 0,
@@ -49,7 +49,7 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <NavBar />
       <main className="flex flex-col gap-8 row-start-2 items-center">
-      <img src="https://pla-ra.xyz/static/images/somtum.png" className="h-[10.5rem] w-auto" alt="Logo" />
+      <img src={logoLink} className="h-[10.5rem] w-auto" alt="Logo" />
         <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-center font-[family-name:var(--font-geist-mono)]">
           <li>Welcome to osu!somtum. i dont know what to put here</li>
           <li>Save and see your changes instantly.</li>

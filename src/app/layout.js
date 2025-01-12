@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Metadata } from 'next';
+import config from './config';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,11 +13,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const { logoLink } = config;
+
 export const metadata = {
+
   title: "osu!somtum",
   description: "osu!somtum - Private osu! Server!",
-  image: "https://pla-ra.xyz/static/images/somtum.png",
-  themeColor: "#7AB226 ",
+  image: {logoLink},
+  openGraph: {
+    title: 'osu!somtum',
+    description: "osu!somtum - Private osu! Server!",
+    image: {logoLink},
+  }
+};
+
+export const viewport = {
+  themeColor: "#7AB226",
 };
 
 export default function RootLayout({ children }) {
