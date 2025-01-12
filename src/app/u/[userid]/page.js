@@ -1,21 +1,34 @@
-'use client';
+'use client'
 
 import NavBar from "@/app/NavBar";
 import Footer from "@/app/Footer";
 import { notFound } from "next/navigation";
 
 export default async function UserProfile({ params }) {
+  
+  try {
+    await fetch('https://api.pla-ra.xyz/v1/status', { method: 'HEAD' });
+  } catch (error) {
+    return new Response('Internal Server Error', { status: 500 });
+  }
   const { userid } = await params;
 
-  const res = await fetch(`https://api.pla-ra.xyz/v2/players/${userid}`, {
-    cache: 'no-store',
-  });
-  const userData = await res.json();
+  try {
+    const res = await fetch(`https://api.pla-ra.xyz/v2/players/${userid}`, {
+      cache: 'no-store',
+    });
 
-  if (userData.status === 'error') {
-    return (
-      notFound()
-    );
+    if (!res.ok) {
+      throw new Error('Failed to fetch');
+    }
+
+    const userData = await res.json();
+
+    if (userData.status === 'error') {
+      return notFound();
+    }
+  } catch (error) {
+    return ""
   }
 
   return (

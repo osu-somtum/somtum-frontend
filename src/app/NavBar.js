@@ -21,16 +21,19 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (searchQuery.length >= 0) {
+    if (searchQuery.length === 0) {
+      setSearchResults([]);
+      setShowDropdown(false);
+    } else {
+      const timeoutId = setTimeout(() => {
         setIsLoading(true);
         setShowDropdown(true);
-  
+
         fetch(`https://api.pla-ra.xyz/v1/search_players?q=${searchQuery}`)
           .then(response => response.json())
           .then(data => {
             console.log('Search results:', data);
-            if (Array.isArray(data.result)) { 
+            if (Array.isArray(data.result)) {
               setSearchResults(data.result);
             } else {
               setSearchResults([]);
@@ -43,16 +46,13 @@ const NavBar = () => {
           .finally(() => {
             setIsLoading(false);
           });
-      } else {
-        setSearchResults([]);
-        setShowDropdown(false);
-      }
-    }, 300);
-  
-    return () => clearTimeout(timeoutId);
+      }, 300);
+
+      return () => clearTimeout(timeoutId);
+    }
   }, [searchQuery]);
 
-  const shouldShowDropdown = showDropdown && (isLoading || searchResults.length > 0 || searchQuery.length >= 2);
+  const shouldShowDropdown = showDropdown && (isLoading || searchResults.length > 0);
 
   return (
     <nav suppressHydrationWarning className="bg-white rounded-lg shadow bg-gray-900/50 m-4 fixed top-0 left-0 right-0 border-gray-600">
