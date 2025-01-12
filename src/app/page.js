@@ -17,7 +17,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchPlayers() {
       try {
-        const res = await fetch("https://api.somtum.fun/v1/get_player_count", {
+        const res = await fetch(`${baseAPIUrl}/v1/get_player_count`, {
           cache: "no-store",
         });
 
