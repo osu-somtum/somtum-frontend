@@ -1,17 +1,18 @@
-'use client'
-
 import NavBar from "@/app/NavBar";
 import Footer from "@/app/Footer";
 import { notFound } from "next/navigation";
+import InternalError from "@/app/InternalError";
 
 export default async function UserProfile({ params }) {
   
   try {
     await fetch('https://api.pla-ra.xyz/v1/status', { method: 'HEAD' });
   } catch (error) {
-    return new Response('Internal Server Error', { status: 500 });
+    return InternalError();
   }
   const { userid } = await params;
+
+  let userData;
 
   try {
     const res = await fetch(`https://api.pla-ra.xyz/v2/players/${userid}`, {
@@ -19,16 +20,16 @@ export default async function UserProfile({ params }) {
     });
 
     if (!res.ok) {
-      throw new Error('Failed to fetch');
+      InternalError();
     }
 
-    const userData = await res.json();
+    userData = await res.json();
 
     if (userData.status === 'error') {
       return notFound();
     }
   } catch (error) {
-    return ""
+    return InternalError();
   }
 
   return (
@@ -38,10 +39,10 @@ export default async function UserProfile({ params }) {
         <div className="max-w-sm border rounded-lg shadow bg-gray-800/80 border-gray-700/50">
             <div className="p-8">
                 <div className="flex items-center">
-                    <img src={`https://a.pla-ra.xyz/${userid}`} alt={`${userData.data.name}'s profile`} className="sm:items-left w-32 h-32 rounded-full mr-4 inline-block" />
+                    <img src={`https://a.pla-ra.xyz/${userid}`} alt={`${userData?.data?.name}'s profile`} className="sm:items-left w-32 h-32 rounded-full mr-4 inline-block" />
                     <a>
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{userData.data.name}</h5>
-                    <h5 className="mb-2 text-sm tracking-tight text-gray-400">Previous Name: <h5 className="text-white">{userData.data.old_name}</h5></h5>
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{userData?.data?.name || 'Loading...'}</h5>
+                    <h5 className="mb-2 text-sm tracking-tight text-gray-400">Previous Name: <h5 className="text-white">{userData?.data?.old_name || 'Loading...'}</h5></h5>
                     </a>
                 </div>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">bio test</p>
@@ -58,3 +59,4 @@ export default async function UserProfile({ params }) {
     </div>
   );
 }
+

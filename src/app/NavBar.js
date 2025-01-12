@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import config from './config';
 
 const NavBar = () => {
+  const { baseAPIUrl, mainUrl, avatarUrl } = config;
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +31,7 @@ const NavBar = () => {
         setIsLoading(true);
         setShowDropdown(true);
 
-        fetch(`https://api.pla-ra.xyz/v1/search_players?q=${searchQuery}`)
+        fetch(`${baseAPIUrl}/v1/search_players?q=${searchQuery}`)
           .then(response => response.json())
           .then(data => {
             console.log('Search results:', data);
@@ -112,7 +114,7 @@ const NavBar = () => {
                           href={`/u/${result.id}`}
                           className="block px-4 py-2 text-white hover:bg-gray-700/50 cursor-pointer"
                         >
-                            <img src={`https://a.pla-ra.xyz/${result.id}`} className="sm:items-left w-8 h-8 rounded-full mr-4 inline-block" />
+                            <img src={`${avatarUrl}/${result.id}`} className="sm:items-left w-8 h-8 rounded-full mr-4 inline-block" />
                           {result.name}
                         </a>
                       </li>

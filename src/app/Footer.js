@@ -1,4 +1,7 @@
+import config from "./config";
+
 export default function Footer() {
+  const { baseAPIUrl, mainUrl, discordInviteLink, githubLink, twitterLink, youtubeLink } = config;
   return (
     <footer className="bg-white rounded-lg shadow bg-gray-900/50 m-4 fixed bottom-0 left-0 right-0  border-gray-600">
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -16,7 +19,7 @@ export default function Footer() {
                 alt="GitHub logo"
                 className="h-4 w-4 me-2 filter invert"
               />
-              <a href="#" className="hover:underline me-4 md:me-6">
+              <a href={githubLink} className="hover:underline me-4 md:me-6">
                 Github
               </a>
             </li>
@@ -26,7 +29,7 @@ export default function Footer() {
                 alt="Discord logo"
                 className="h-4 w-4 me-2 filter"
               />
-              <a href="https://discord.gg/FANdkPJZZT" className="hover:underline me-4 md:me-6">
+              <a href={discordInviteLink} className="hover:underline me-4 md:me-6">
                 Discord
               </a>
             </li>
@@ -36,7 +39,7 @@ export default function Footer() {
                 alt="Youtube logo"
                 className="h-4 w-4 me-2"
               />
-              <a href="#" className="hover:underline me-4 md:me-6">
+              <a href={youtubeLink} className="hover:underline me-4 md:me-6">
                 YouTube
               </a>
             </li>
@@ -46,7 +49,7 @@ export default function Footer() {
                 alt="Twitter logo"
                 className="h-4 w-4 me-2"
               />
-              <a href="#" className="hover:underline me-4 md:me-6">
+              <a href={twitterLink} className="hover:underline me-4 md:me-6">
                 Twitter
               </a>
             </li>

@@ -3,8 +3,12 @@
 import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import InternalError from "./InternalError";
+import config from "./config";
 
 export default function Home() {
+  const { baseAPIUrl, mainUrl, discordInviteLink } = config;
+
   const [playerCounts, setPlayerCounts] = useState({
     onlinePlayers: 0,
     registeredPlayers: 0,
@@ -18,7 +22,7 @@ export default function Home() {
         });
 
         if (!res.ok) {
-          throw new Error("Failed to fetch");
+          return InternalError();
         }
 
         const data = await res.json();
@@ -50,7 +54,7 @@ export default function Home() {
           <li>Welcome to osu!somtum. i dont know what to put here</li>
           <li>Save and see your changes instantly.</li>
           <li>
-            Join our <a className="bg-gradient-to-br from-[#5865F2] to-[#57F287] text-transparent bg-clip-text text-white" href="https://discord.gg/FANdkPJZZT">Discord Server</a>{" "}for the latest updates!
+            Join our <a className="bg-gradient-to-br from-[#5865F2] to-[#57F287] text-transparent bg-clip-text text-white" href={discordInviteLink}>Discord Server</a>{" "}for the latest updates!
           </li>
         </ol>
         {/* I CANT MAKE IT CENTER HELP */}
