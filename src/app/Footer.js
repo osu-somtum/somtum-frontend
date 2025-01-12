@@ -3,7 +3,7 @@ import config from "./config";
 export default function Footer() {
   const { baseAPIUrl, mainUrl, discordInviteLink, githubLink, twitterLink, youtubeLink } = config;
   return (
-    <footer className="bg-white rounded-lg shadow bg-gray-900/50 m-4 fixed bottom-0 left-0 right-0  border-gray-600">
+    <footer className="rounded-lg shadow bg-gray-900/50 m-4 fixed bottom-0 left-0 right-0  border-gray-600">
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a

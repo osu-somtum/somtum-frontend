@@ -6,7 +6,7 @@ const config = {
     githubLink: process.env.NEXT_PUBLIC_GITHUB_LINK || "https://github.com/osu-somtum",
     twitterLink: process.env.NEXT_PUBLIC_TWITTER_LINK || "https://twitter.com/idk",
     youtubeLink: process.env.NEXT_PUBLIC_YOUTUBE_LINK || "https://www.youtube.com/yt",
-    logoLink: process.env.NEXT_PUBLIC_LOGO_LINK || "/somtum.png",
+    logoLink: process.env.NEXT_PUBLIC_LOGO_LINK || "/somtum.jpg",
   };
   
 export default config;
