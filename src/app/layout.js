@@ -13,18 +13,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const { logoLink, brandName, brandDescription } = config;
+const { brandImage, brandName, brandDescription } = config;
 
 export const metadata = {
-
   title: brandName,
   description: brandDescription,
-  image: {url: logoLink, alt: 'Logo'},
   openGraph: {
     title: brandName,
     description: brandDescription,
-    image: {url: logoLink, alt: 'Logo'},
-  }
+    image: { url: brandImage, alt: 'Logo' },
+  },
 };
 
 export const viewport = {

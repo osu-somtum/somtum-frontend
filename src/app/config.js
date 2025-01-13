@@ -16,6 +16,7 @@ const config = {
 
     brandName: process.env.NEXT_PUBLIC_BRAND_NAME || "osu!somtum - Development Envionment",
     brandDescription: process.env.NEXT_PUBLIC_BRAND_DESCRIPTION || "osu!somtum - Private osu! Server!",
+    brandImage: process.env.NEXT_PUBLIC_BRAND_IMAGE || "/assets/somtum.png"
   };
   
 export default config;
