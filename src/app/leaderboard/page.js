@@ -6,7 +6,7 @@ import Footer from "../Footer";
 import config from "../config";
 
 export default function Home() {
-  const { baseAPIUrl, mainUrl, discordInviteLink, logoLink, brandName } = config;
+  const { baseAPIUrl, mainUrl, discordInviteLink, logoLink, brandName, githubSVG } = config;
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <NavBar />
@@ -17,19 +17,19 @@ export default function Home() {
                 <div class="flex items-center justify-center">
                     <ul className="flex items-center sm:items-center mb-6 text-sm font-medium text-gray-400 sm:mb-0">
                         <li className="flex items-center">
-                            <img src="/github-mark.svg" alt="GitHub logo" className="h-4 w-4 me-2 filter invert"/>
+                            <img src={githubSVG} alt="GitHub logo" className="h-4 w-4 me-2 filter invert"/>
                             <a href="" className="hover:underline me-4 md:me-6">osu!</a>
                         </li>
                         <li className="flex items-center">
-                            <img src="/github-mark.svg" alt="GitHub logo" className="h-4 w-4 me-2 filter invert"/>
+                            <img src={githubSVG} alt="GitHub logo" className="h-4 w-4 me-2 filter invert"/>
                             <a href="" className="hover:underline me-4 md:me-6">osu!taiko</a>
                         </li>
                         <li className="flex items-center">
-                            <img src="/github-mark.svg" alt="GitHub logo" className="h-4 w-4 me-2 filter invert"/>
+                            <img src={githubSVG} alt="GitHub logo" className="h-4 w-4 me-2 filter invert"/>
                             <a href="" className="hover:underline me-4 md:me-6">osu!catch</a>
                         </li>
                         <li className="flex items-center">
-                            <img src="/github-mark.svg" alt="GitHub logo" className="h-4 w-4 me-2 filter invert"/>
+                            <img src={githubSVG} alt="GitHub logo" className="h-4 w-4 me-2 filter invert"/>
                             <a href="" className="hover:underline me-4 md:me-6">osu!mania</a>
                         </li>
                     </ul>
