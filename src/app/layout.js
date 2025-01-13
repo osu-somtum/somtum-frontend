@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Metadata } from 'next';
 import config from './config';
 
 const geistSans = Geist({
@@ -13,15 +12,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const { brandImage, brandName, brandDescription } = config;
-
+const { brandImage, brandName, brandDescription, mainUrl } = config;
 export const metadata = {
+  metadataBase: new URL(mainUrl),
   title: brandName,
   description: brandDescription,
   openGraph: {
+    type: "website",
+    url: mainUrl,
     title: brandName,
     description: brandDescription,
-    image: { url: brandImage, alt: 'Logo' },
+    images: [
+      {
+        url: '/static/images/somtum.png',
+        alt: "Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    url: mainUrl,
+    title: brandName,
+    description: brandDescription,
+    images: [
+      {
+        url: '/static/images/somtum.png',
+        alt: "Logo",
+      },
+    ],
   },
 };
 
@@ -40,4 +58,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
