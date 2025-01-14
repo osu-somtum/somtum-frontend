@@ -71,77 +71,77 @@ export default function Home() {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <NavBar />
-      <main className="flex flex-col gap-8 row-start-2 items-center">
-        <div className="h-full w-full border rounded-lg shadow bg-gray-800/50 border-gray-700/50">
-          <div className="p-5">
+    <NavBar />
+    <main className="flex flex-col gap-8 row-start-2 items-center w-full">
+        <div className="h-full w-[90%] lg:w-[80%] border rounded-lg shadow bg-gray-800/50 border-gray-700/50">
+        <div className="p-5">
             <h5 className="sm:text-center mb-8 mt-8 text-4xl font-bold tracking-tight text-white">
-              Leaderboard
+            Leaderboard
             </h5>
             <div className="flex items-center justify-center">
-                <ul className="flex items-center sm:items-center mb-6 text-sm font-medium text-gray-400 sm:mb-0">
-                    <li className="mb-6flex items-center">
-                        <img src={osuLogo} alt="GitHub logo" className="h-4 w-4 me-2"/>
-                        <a href="" className="hover:underline me-4 md:me-6">osu!</a>
-                    </li>
-                    <li className="flex items-center">
-                        <img src={osuTaikoLogo} alt="GitHub logo" className="h-4 w-4 me-2"/>
-                        <a href="" className="hover:underline me-4 md:me-6">osu!taiko</a>
-                    </li>
-                    <li className="flex items-center">
-                        <img src={osuCatchLogo} alt="GitHub logo" className="h-4 w-4 me-2"/>
-                        <a href="" className="hover:underline me-4 md:me-6">osu!catch</a>
-                    </li>
-                    <li className="flex items-center">
-                        <img src={osuManiaLogo} alt="GitHub logo" className="h-4 w-4 me-2"/>
-                        <a href="" className="hover:underline me-4 md:me-6">osu!mania</a>
-                    </li>
-                </ul>
+            <ul className="flex items-center sm:items-center mb-6 text-sm font-medium text-gray-400 sm:mb-0">
+                <li className="flex items-center">
+                <img src={osuLogo} alt="osu! logo" className="h-4 w-4 me-2" />
+                <a href="" className="hover:underline me-4 md:me-6">osu!</a>
+                </li>
+                <li className="flex items-center">
+                <img src={osuTaikoLogo} alt="osu!taiko logo" className="h-4 w-4 me-2" />
+                <a href="" className="hover:underline me-4 md:me-6">osu!taiko</a>
+                </li>
+                <li className="flex items-center">
+                <img src={osuCatchLogo} alt="osu!catch logo" className="h-4 w-4 me-2" />
+                <a href="" className="hover:underline me-4 md:me-6">osu!catch</a>
+                </li>
+                <li className="flex items-center">
+                <img src={osuManiaLogo} alt="osu!mania logo" className="h-4 w-4 me-2" />
+                <a href="" className="hover:underline me-4 md:me-6">osu!mania</a>
+                </li>
+            </ul>
             </div>
             <p className="mb-4 mt-8 font-normal text-white text-center">You are currently viewing osu! category.</p>
             <div className="relative overflow-x-auto rounded-lg">
-              {isLoading ? (
+            {isLoading ? (
                 <p className="text-center text-white">Loading...</p>
-              ) : error ? (
+            ) : error ? (
                 <p className="text-center text-red-500">Error: {error}</p>
-              ) : (
+            ) : (
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                  <thead className="text-xs uppercase bg-gray-700/50 text-gray-400 text-center">
+                <thead className="text-xs uppercase bg-gray-700/50 text-gray-400 text-center">
                     <tr>
-                      <th className="px-4 py-2"></th>
-                      <th className="px-4 py-2"></th>
-                      <th className="px-4 py-2"></th>
-                      <th className="px-4 py-2">PP</th>
-                      <th className="px-4 py-2">Accuracy</th>
-                      <th className="px-4 py-2">Playcount</th>
-                      <th className="px-4 py-2">Max Combo</th>
+                    <th className="px-6 py-3"></th>
+                    <th className="px-6 py-3"></th>
+                    <th className="px-6 py-3"></th>
+                    <th className="px-6 py-3">PP</th>
+                    <th className="px-6 py-3">Accuracy</th>
+                    <th className="px-6 py-3">Playcount</th>
+                    <th className="px-6 py-3">Max Combo</th>
                     </tr>
-                  </thead>
-                  <tbody>
+                </thead>
+                <tbody>
                     {leaderboard.map((player, index) => (
-                      <tr key={player.player_id} className="text-sm border-b bg-gray-800/50 border-gray-700/50 text-white">
-                        <td className="px-4 py-2">#{index + 1}</td>
+                    <tr key={player.player_id} className="text-sm border-b bg-gray-800/50 border-gray-700/50 text-white">
+                        <td className="px-6 py-3">#{index + 1}</td>
                         <td className="">
-                          <img src={`/assets/flags/${player.country.toUpperCase()}.png`} alt="flag" className="w-auto h-6 mr-2 inline-block"/>
+                        <img src={`/assets/flags/${player.country.toUpperCase()}.png`} alt="flag" className="w-auto h-6 mr-2 inline-block" />
                         </td>
-                        <td className="px-4 py-3">
-                            <img src={`${avatarUrl}/${player.player_id}`} className="sm:items-left w-8 h-8 rounded-full mr-4 inline-block" />
-                            <a href="/u/${player.player_id}">{player.name}</a>
+                        <td className="px-6 py-3">
+                        <img src={`${avatarUrl}/${player.player_id}`} className="sm:items-left w-8 h-8 rounded-full mr-4 inline-block" />
+                        <a href={`/u/${player.player_id}`}>{player.name}</a>
                         </td>
-                        <td className="px-4 py-2">{player.pp}</td>
-                        <td className="px-4 py-2">{player.acc.toFixed(2)}%</td>
-                        <td className="px-4 py-2">{player.plays}</td>
-                        <td className="px-4 py-2">{player.max_combo}</td>
-                      </tr>
+                        <td className="px-6 py-3 text-center">{player.pp}</td>
+                        <td className="px-6 py-3 text-center">{player.acc.toFixed(2)}%</td>
+                        <td className="px-6 py-3 text-center">{player.plays}</td>
+                        <td className="px-6 py-3 text-center">{player.max_combo}</td>
+                    </tr>
                     ))}
-                  </tbody>
+                </tbody>
                 </table>
-              )}
+            )}
             </div>
-          </div>
         </div>
-      </main>
-      <Footer />
+        </div>
+    </main>
+    <Footer />
     </div>
   );
 }
