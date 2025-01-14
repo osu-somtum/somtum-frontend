@@ -34,13 +34,61 @@ export default function Home() {
                         </li>
                     </ul>
                 </div>
-                <p className="mt-8 font-normal text-gray-700 dark:text-gray-400">test.</p>
-                <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    but t o n
-                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
+                <p className="mb-4 mt-8 font-normal text-white text-center">You are currently viewing osu! category.</p>
+                <div className="relative overflow-x-auto rounded-lg">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead className="text-xs uppercase bg-gray-700/50 text-gray-400 text-center">
+                            <tr>
+                                <th scope="col" className="px-4 py-2">
+                                    
+                                </th>
+                                <th scope="col" className="px-4 py-2">
+                                    
+                                </th>
+                                <th scope="col" className="px-4 py-2">
+                                    
+                                </th>
+                                <th scope="col" className="px-4 py-2">
+                                    PP
+                                </th>
+                                <th scope="col" className="px-4 py-2">
+                                    Accuracy
+                                </th>
+                                <th scope="col" className="px-4 py-2">
+                                    Playcount
+                                </th>
+                                <th scope="col" className="px-4 py-2">
+                                    Max Combo
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b bg-gray-800/50 border-gray-700/50 text-white whitespace-nowrap font-medium">
+                                <td className="px-4 py-2">
+                                    #1
+                                </td>
+                                <td className="px-4 py-2">
+                                    <img src="/assets/flags/Thailand.png" className="w-auto h-6 mr-2 inline-block"/>
+                                </td>
+                                <th scope="row" className="px-4 py-2">
+                                    223.207.246.70
+                                </th>
+                                <td className="px-4 py-2">
+                                    69420pp
+                                </td>
+                                <td className="px-4 py-2">
+                                    727%
+                                </td>
+                                <td className="px-4 py-2">
+                                    69420
+                                </td>
+                                <td className="px-4 py-2">
+                                    696969
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
       </main>
