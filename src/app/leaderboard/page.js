@@ -107,6 +107,13 @@ export default function Home() {
     router.push(`?${params.toString()}`);
   };
 
+  const isButtonDisabled = (mods) => {
+    const gameMode = searchParams.get("mode") || "standard";
+    if (gameMode === "mania" && (mods === "rx" || mods === "ap")) return true;
+    if ((gameMode === "taiko" || gameMode === "catch") && mods === "ap") return true;
+    return false;
+  };
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <NavBar />
@@ -139,18 +146,14 @@ export default function Home() {
             <div className="mb-5 flex items-center justify-center">
               <ul className="flex items-center sm:items-center mb-6 text-sm font-medium text-white sm:mb-0">
                 <li>
-                  <a href="#" onClick={() => handleModsChange("vn")} className="hover:underline me-4 md:me-6">Vanilla</a>
+                  <a href="#" onClick={() => handleModsChange("vn")} className={`hover:underline me-4 md:me-6 ${isButtonDisabled("vn") ? "text-gray-500 cursor-not-allowed" : ""}`} style={{ pointerEvents: isButtonDisabled("vn") ? "none" : "auto" }}>Vanilla</a>
                 </li>
-                {searchParams.get("mode") !== "mania" && (
-                  <li>
-                    <a href="#" onClick={() => handleModsChange("rx")} className="hover:underline me-4 md:me-6">Relax</a>
-                  </li>
-                )}
-                {searchParams.get("mode") === "standard" && (
-                  <li>
-                    <a href="#" onClick={() => handleModsChange("ap")} className="hover:underline me-4 md:me-6">Autopilot</a>
-                  </li>
-                )}
+                <li>
+                  <a href="#" onClick={() => handleModsChange("rx")} className={`hover:underline me-4 md:me-6 ${isButtonDisabled("rx") ? "text-gray-500 cursor-not-allowed" : ""}`} style={{ pointerEvents: isButtonDisabled("rx") ? "none" : "auto" }}>Relax</a>
+                </li>
+                <li>
+                  <a href="#" onClick={() => handleModsChange("ap")} className={`hover:underline me-4 md:me-6 ${isButtonDisabled("ap") ? "text-gray-500 cursor-not-allowed" : ""}`} style={{ pointerEvents: isButtonDisabled("ap") ? "none" : "auto" }}>Autopilot</a>
+                </li>
               </ul>
             </div>
             <div className="relative overflow-x-auto rounded-lg">
