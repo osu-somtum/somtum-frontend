@@ -150,7 +150,7 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <NavBar />
       <main className="flex flex-col gap-8 row-start-2 items-center w-full">
-        <div className="h-full w-[90%] lg:w-[80%] border rounded-lg shadow bg-gray-800/50 border-gray-700/50">
+        <div className="h-full w-[90%] lg:w-[80%] border rounded-lg shadow bg-gray-700/50 border-gray-700/50">
           <div className="p-5">
             <h5 className="sm:text-center mb-8 mt-8 text-4xl font-bold tracking-tight text-white">
               {getLeaderboardTitle()}

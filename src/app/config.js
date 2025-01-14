@@ -25,6 +25,9 @@ const config = {
     osuTaikoLogo: process.env.NEXT_PUBLIC_OSU_TAIKO_LOGO || "/assets/modes/osu!taiko.svg",
     osuCatchLogo: process.env.NEXT_PUBLIC_OSU_CATCH_LOGO || "/assets/modes/osu!catch.svg",
     osuManiaLogo: process.env.NEXT_PUBLIC_OSU_MANIA_LOGO || "/assets/modes/osu!mania.svg",
+    /* donation */
+    kofiLink: process.env.NEXT_PUBLIC_KOFI_LINK || "https://ko-fi.com/blueskychan_",
+    patreonLink: process.env.NEXT_PUBLIC_PATREON_LINK || "https://patreon.com/idk",
   };
   
 export default config;
