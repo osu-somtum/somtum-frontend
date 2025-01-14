@@ -6,6 +6,18 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import config from "../config";
 
+const LeftArrowIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+  </svg>
+);
+
+const RightArrowIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+  </svg>
+);
+
 export default function Home() {
   const { baseAPIUrl, avatarUrl, osuLogo, osuTaikoLogo, osuCatchLogo, osuManiaLogo } = config;
   const searchParams = useSearchParams();
@@ -79,9 +91,11 @@ export default function Home() {
       const mods = searchParams.get("mods") || defaultParams.mods;
       const gameMode = searchParams.get("mode") || "standard";
       const mode = getModeFromMods(mods, gameMode);
+      const page = parseInt(searchParams.get("page") || defaultParams.page, 10);
+      const offset = (page - 1) * 50;
 
       const response = await fetch(
-        `${baseAPIUrl}/v1/get_leaderboard?mode=${mode}&mods=${mods}&sort=pp&limit=50&offset=0`
+        `${baseAPIUrl}/v1/get_leaderboard?mode=${mode}&mods=${mods}&sort=pp&limit=50&offset=${offset}`
       );
 
       if (!response.ok) {
@@ -112,6 +126,24 @@ export default function Home() {
     if (gameMode === "mania" && (mods === "rx" || mods === "ap")) return true;
     if ((gameMode === "taiko" || gameMode === "catch") && mods === "ap") return true;
     return false;
+  };
+
+  const handleNextPage = () => {
+    const currentPage = parseInt(searchParams.get("page") || defaultParams.page, 10);
+    const nextPage = currentPage + 1;
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", nextPage.toString());
+    router.push(`?${params.toString()}`);
+  };
+
+  const handlePreviousPage = () => {
+    const currentPage = parseInt(searchParams.get("page") || defaultParams.page, 10);
+    if (currentPage > 1) {
+      const previousPage = currentPage - 1;
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("page", previousPage.toString());
+      router.push(`?${params.toString()}`);
+    }
   };
 
   return (
@@ -162,37 +194,56 @@ export default function Home() {
               ) : error ? (
                 <p className="text-center text-red-500">Error: {error}</p>
               ) : (
-                <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                  <thead className="text-xs uppercase bg-gray-700/50 text-gray-400 text-center">
-                    <tr>
-                      <th className="px-6 py-3"></th>
-                      <th className="px-6 py-3"></th>
-                      <th className="px-6 py-3"></th>
-                      <th className="px-6 py-3">PP</th>
-                      <th className="px-6 py-3">Accuracy</th>
-                      <th className="px-6 py-3">Playcount</th>
-                      <th className="px-6 py-3">Max Combo</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {leaderboard.map((player, index) => (
-                      <tr key={player.player_id} className="text-sm border-b bg-gray-800/50 border-gray-700/50 text-white">
-                        <td className="px-6 py-3 w-10">#{index + 1}</td>
-                        <td className="px-2 py-3 w-10">
-                          <img src={`/assets/flags/${player.country.toUpperCase()}.png`} alt="flag" className="w-auto h-6 inline-block ml-0" />
-                        </td>
-                        <td className="px-6 py-3">
-                          <img src={`${avatarUrl}/${player.player_id}`} className="sm:items-left w-8 h-8 rounded-full mr-4 inline-block" />
-                          <a href={`/u/${player.player_id}`}>{player.name}</a>
-                        </td>
-                        <td className="px-6 py-3 text-center">{player.pp}pp</td>
-                        <td className="px-6 py-3 text-center">{player.acc.toFixed(2)}%</td>
-                        <td className="px-6 py-3 text-center">{player.plays}</td>
-                        <td className="px-6 py-3 text-center">{player.max_combo}</td>
+                <>
+                  <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead className="text-xs uppercase bg-gray-700/50 text-gray-400 text-center">
+                      <tr>
+                        <th className="px-6 py-3"></th>
+                        <th className="px-6 py-3"></th>
+                        <th className="px-6 py-3"></th>
+                        <th className="px-6 py-3">PP</th>
+                        <th className="px-6 py-3">Accuracy</th>
+                        <th className="px-6 py-3">Playcount</th>
+                        <th className="px-6 py-3">Max Combo</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {leaderboard.map((player, index) => (
+                        <tr key={player.player_id} className="text-sm border-b bg-gray-800/50 border-gray-700/50 text-white">
+                          <td className="px-6 py-3 w-10">#{(parseInt(searchParams.get("page") || defaultParams.page, 10) - 1) * 50 + index + 1}</td>
+                          <td className="px-2 py-3 w-10">
+                            <img src={`/assets/flags/${player.country.toUpperCase()}.png`} alt="flag" className="w-auto h-6 inline-block ml-0" />
+                          </td>
+                          <td className="px-6 py-3">
+                            <img src={`${avatarUrl}/${player.player_id}`} className="sm:items-left w-8 h-8 rounded-full mr-4 inline-block" />
+                            <a href={`/u/${player.player_id}`}>{player.name}</a>
+                          </td>
+                          <td className="px-6 py-3 text-center">{player.pp}pp</td>
+                          <td className="px-6 py-3 text-center">{player.acc.toFixed(2)}%</td>
+                          <td className="px-6 py-3 text-center">{player.plays}</td>
+                          <td className="px-6 py-3 text-center">{player.max_combo}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div className="flex justify-center mt-4">
+                    <button
+                      onClick={handlePreviousPage}
+                      className={`px-4 py-2 bg-gray-500/50 text-white rounded-full hover:bg-gray-700/50 flex items-center justify-center ${parseInt(searchParams.get("page") || defaultParams.page, 10) === 1 ? "cursor-not-allowed opacity-50" : ""}`}
+                      disabled={parseInt(searchParams.get("page") || defaultParams.page, 10) === 1}
+                    >
+                      <LeftArrowIcon />
+                    </button>
+                    <span className="px-4 py-2 text-white">{`Page ${searchParams.get("page") || defaultParams.page}`}</span>
+                    <button
+                      onClick={handleNextPage}
+                      className={`px-4 py-2 bg-gray-500/50 text-white rounded-full hover:bg-gray-700/50 flex items-center justify-center ${leaderboard.length < 50 ? "cursor-not-allowed opacity-50" : ""}`}
+                      disabled={leaderboard.length < 50}
+                    >
+                      <RightArrowIcon />
+                    </button>
+                  </div>
+                </>
               )}
             </div>
           </div>
