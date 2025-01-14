@@ -16,7 +16,12 @@ const config = {
 
     brandName: process.env.NEXT_PUBLIC_BRAND_NAME || "osu!somtum - Development Envionment",
     brandDescription: process.env.NEXT_PUBLIC_BRAND_DESCRIPTION || "osu!somtum - Private osu! Server!",
-    brandImage: process.env.NEXT_PUBLIC_BRAND_IMAGE || "/assets/somtum.png"
+    brandImage: process.env.NEXT_PUBLIC_BRAND_IMAGE || "/assets/somtum.png",
+
+    osuLogo: process.env.NEXT_PUBLIC_OSU_LOGO || "/assets/modes/osu!.svg",
+    osuTaikoLogo: process.env.NEXT_PUBLIC_OSU_TAIKO_LOGO || "/assets/modes/osu!taiko.svg",
+    osuCatchLogo: process.env.NEXT_PUBLIC_OSU_CATCH_LOGO || "/assets/modes/osu!catch.svg",
+    osuManiaLogo: process.env.NEXT_PUBLIC_OSU_MANIA_LOGO || "/assets/modes/osu!mania.svg",
   };
   
 export default config;

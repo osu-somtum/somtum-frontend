@@ -7,12 +7,13 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        pokemongreen: "#73EC8B"
+      scrollbar: {
+        DEFAULT: {
+          thumb: 'rounded bg-gray-600/50',
+          track: 'rounded bg-gray-800/50',
+        },
       },
     },
-  },
-  plugins: [],
+  },  
+  plugins: [require('tailwind-scrollbar')],
 };
