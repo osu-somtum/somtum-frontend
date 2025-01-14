@@ -80,7 +80,7 @@ export default function Home() {
             </h5>
             <div className="flex items-center justify-center">
                 <ul className="flex items-center sm:items-center mb-6 text-sm font-medium text-gray-400 sm:mb-0">
-                    <li className="flex items-center">
+                    <li className="mb-6flex items-center">
                         <img src={osuLogo} alt="GitHub logo" className="h-4 w-4 me-2"/>
                         <a href="" className="hover:underline me-4 md:me-6">osu!</a>
                     </li>
@@ -136,8 +136,6 @@ export default function Home() {
                     ))}
                   </tbody>
                 </table>
-                        <td className="px-4 py-2">{player.ranked_score}</td>
-                        <td className="px-4 py-2">{player.total_score}</td>
               )}
             </div>
           </div>
@@ -147,4 +145,3 @@ export default function Home() {
     </div>
   );
 }
-
