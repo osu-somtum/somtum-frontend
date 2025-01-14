@@ -105,7 +105,7 @@ const NavBar = () => {
                   <div className="p-2 text-gray-400">Loading...</div>
                 )}
                 {!isLoading && searchResults.length > 0 && (
-                  <ul className="max-h-60 overflow-y-auto py-1">
+                  <ul className="max-h-60 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400/50 scrollbar-track-gray-700/50 hover:scrollbar-thumb-gray-300 py-1">
                     {searchResults.map((result) => (
                       <li key={result.id}>
                         <a
