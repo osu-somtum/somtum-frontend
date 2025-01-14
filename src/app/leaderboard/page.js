@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import NavBar from "../NavBar";
-import Footer from "../Footer";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import config from "../config";
 
 export default function Home() {

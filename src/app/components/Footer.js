@@ -1,4 +1,4 @@
-import config from "./config";
+import config from "../config";
 
 export default function Footer() {
   const { baseAPIUrl, mainUrl, discordInviteLink, githubLink, twitterLink, youtubeLink, brandName, discordSVG, twitterSVG, youtubeSVG, githubSVG } = config;

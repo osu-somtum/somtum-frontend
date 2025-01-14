@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import config from './config';
+import config from '../config';
 
 const NavBar = () => {
   const { baseAPIUrl, avatarUrl, logoLink } = config;

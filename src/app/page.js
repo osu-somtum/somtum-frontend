@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
-import InternalError from "./InternalError";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import InternalError from "./error/InternalError";
 import config from "./config";
 
 export default function Home() {

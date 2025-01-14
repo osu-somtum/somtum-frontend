@@ -1,7 +1,7 @@
-import NavBar from "@/app/NavBar";
-import Footer from "@/app/Footer";
+import NavBar from "@/app/components/NavBar";
+import Footer from "@/app/components/Footer";
 import { notFound } from "next/navigation";
-import InternalError from "@/app/InternalError";
+import InternalError from "@/app/error/InternalError";
 
 export default async function UserProfile({ params }) {
   
