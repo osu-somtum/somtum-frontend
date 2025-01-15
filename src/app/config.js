@@ -28,6 +28,8 @@ const config = {
     /* donation */
     kofiLink: process.env.NEXT_PUBLIC_KOFI_LINK || "https://ko-fi.com/blueskychan_",
     patreonLink: process.env.NEXT_PUBLIC_PATREON_LINK || "https://patreon.com/idk",
+    /* captcha key thingy i do not care if i didnt remove it because i dont give a single shit  and it's not prod*/
+    cloudflareCaptchaKey: process.env.GOOGLE_CAPTCHA_SITE_KEY || "0x4AAAAAAA5YgONz13byvpGB"
   };
   
 export default config;
