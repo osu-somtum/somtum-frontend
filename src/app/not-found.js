@@ -8,7 +8,7 @@ export default function Home() {
       <NavBar />
       <main className="flex flex-col gap-8 row-start-2 items-center">
       <img src="https://pla-ra.xyz/static/images/somtum.png" className="h-[10.5rem] w-auto" alt="Logo" />
-        <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+        <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-left font-[family-name:var(--font-geist-sans)]">
           <li>Oops, 404 Page not found </li>
           <li>You are looking for a page that does not exist</li>
           <li>- Check that the URL you entered is correct.</li>

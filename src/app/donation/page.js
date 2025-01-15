@@ -12,7 +12,7 @@ export default function Home() {
       <NavBar />
       <main className="flex flex-col gap-8 row-start-2 items-center">
       <img src={logoLink} className="h-[10.5rem] w-auto" alt="Logo" />
-        <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-center font-[family-name:var(--font-geist-mono)]">
+        <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-center font-[family-name:var(--font-geist-sans)]">
           <li>If you wish to support me.</li>
           <li className="mb-10">Please consider supporting me on one of the following platforms:</li>
           <div className="flex gap-4 items-center flex-col sm:flex-row justify-center">
