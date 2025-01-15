@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Mali } from 'next/font/google';
 import "./globals.css";
 import config from './config';
 
@@ -9,6 +10,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const MaliFont = Mali({
+  variable: "--font-mali",
+  weight: "500",
   subsets: ["latin"],
 });
 
@@ -51,7 +58,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${MaliFont.variable} antialiased`}
       >
         {children}
       </body>

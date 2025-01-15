@@ -66,7 +66,7 @@ const NavBar = () => {
   ];
 
   return (
-    <nav suppressHydrationWarning className="rounded-lg shadow bg-gray-900/50 m-4 fixed top-0 left-0 right-0 border-gray-600">
+    <nav suppressHydrationWarning className="rounded-lg shadow bg-gray-900/50 m-4 fixed top-0 left-0 right-0 border-gray-600 font-[family-name:var(--font-mali)]">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="flex items-center space-x-3 rtl:space-x-reverse">
           <a href="/">

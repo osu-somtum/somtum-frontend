@@ -8,11 +8,11 @@ export default function Home() {
   const { BuyMeACoffeeLink, patreonLink, kofiLink, logoLink } = config;
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-mali)]">
       <NavBar />
       <main className="flex flex-col gap-8 row-start-2 items-center">
       <img src={logoLink} className="h-[10.5rem] w-auto" alt="Logo" />
-        <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-center font-[family-name:var(--font-geist-sans)]">
+        <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-center">
           <li>If you wish to support me.</li>
           <li className="mb-10">Please consider supporting me on one of the following platforms:</li>
           <div className="flex gap-4 items-center flex-col sm:flex-row justify-center">

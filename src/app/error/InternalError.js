@@ -1,13 +1,15 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import config from "../config";
 
 export default function InternalError() {
+  const { LogoLink } = config;
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-mali)]">
       <NavBar />
       <main className="flex flex-col gap-8 row-start-2 items-center">
-      <img src="https://pla-ra.xyz/static/images/somtum.png" className="h-[10.5rem] w-auto" alt="Logo" />
-        <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-left font-[family-name:var(--font-geist-sans)]">
+      <img src={LogoLink} className="h-[10.5rem] w-auto" alt="Logo" />
+        <ol className="text-bold mb-2 text-white text-xl text-sm text-center sm:text-left">
           <li>Oops, 500 Internal Server Error.</li>
           <li>This error occurred because the server encounter an internal error.</li>
           <li>- Check that the URL you entered is correct.</li>
