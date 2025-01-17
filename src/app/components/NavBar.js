@@ -12,6 +12,18 @@ const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
   const pathname = usePathname();
+  const [isDocsOpen, setIsDocsOpen] = useState(false);
+  const docsRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (docsRef.current && !docsRef.current.contains(event.target)) {
+        setIsDocsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -62,7 +74,6 @@ const NavBar = () => {
     { name: 'Top Plays', href: '/top-plays' },
     { name: 'Guilds', href: '/guilds' },
     { name: 'Donation', href: '/donation' },
-    { name: 'Docs', href: '/docs' },
   ];
 
   return (
@@ -80,6 +91,21 @@ const NavBar = () => {
                 </a>
               </li>
             ))}
+              <li className="relative" ref={docsRef}>
+              <a onClick={() => setIsDocsOpen(!isDocsOpen)} 
+                className="block py-2 px-3 text-white rounded md:p-0 md:hover:text-emerald-300 hover:bg-transparent cursor-pointer">
+                Docs
+                <svg className="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M19 9l-7 7-7-7"/>
+                </svg>
+              </a>
+              <ul className={`absolute ${isDocsOpen ? 'block' : 'hidden'} bg-gray-700/50 text-white rounded-lg shadow-lg mt-4 w-48 min-w-[200px]`}>
+                <li><a href="/docs/rules" className="block px-4 py-2 hover:bg-gray-200/20">Rules</a></li>
+                <li><a href="/docs/connect" className="block px-4 py-2 hover:bg-gray-200/20">How to connect</a></li>
+                <li><a href="/docs/api" className="block px-4 py-2 hover:bg-gray-200/20">API</a></li>
+                <li><a href="/docs/faq" className="block px-4 py-2 hover:bg-gray-200/20">FAQ</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
         <div className="flex md:order-2">
