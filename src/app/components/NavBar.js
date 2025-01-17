@@ -66,7 +66,7 @@ const NavBar = () => {
   ];
 
   return (
-    <nav suppressHydrationWarning className="rounded-lg shadow bg-gray-900/50 m-4 fixed top-0 left-0 right-0 border-gray-600 font-[family-name:var(--font-mali)]">
+    <nav suppressHydrationWarning className="transition-colors rounded-lg shadow bg-gray-900/50 m-4 fixed top-0 left-0 right-0 border-gray-600 font-[family-name:var(--font-mali)]">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="flex items-center space-x-3 rtl:space-x-reverse">
           <a href="/">
@@ -125,8 +125,8 @@ const NavBar = () => {
               </div>
             )}
           </div>
-          <button type="button" className="text-white focus:ring-2 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-base px-4 py-2 text-center bg-emerald-500 hover:bg-emerald-600 mb-2 md:mb-0 md:mr-2">Sign Up</button>
-          <button type="button" className="text-white focus:ring-2 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-base px-4 py-2 text-center bg-emerald-500 hover:bg-emerald-600">Log in</button>
+          <a href="/register" className="text-white focus:ring-2 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-base px-4 py-2 text-center bg-emerald-500 hover:bg-emerald-600 mb-2 md:mb-0 md:mr-2 transition-colors">Sign Up</a>
+          <a href="/login" className="text-white focus:ring-2 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-base px-4 py-2 text-center bg-emerald-500 hover:bg-emerald-600 transition-colors">Log in</a>
         </div>
       </div>
     </nav>

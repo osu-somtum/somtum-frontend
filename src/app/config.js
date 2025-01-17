@@ -27,7 +27,7 @@ const config = {
     osuManiaLogo: process.env.NEXT_PUBLIC_OSU_MANIA_LOGO || "/assets/modes/osu!mania.svg",
     /* donation */
     kofiLink: process.env.NEXT_PUBLIC_KOFI_LINK || "https://ko-fi.com/blueskychan_",
-    patreonLink: process.env.NEXT_PUBLIC_PATREON_LINK || "https://patreon.com/idk",
+    voteOsu: process.env.NEXT_PUBLIC_VOTE_ON_OSU_SERVER_LIST || "https://osu-server-list.com/server/somtum/vote",
     /* captcha key thingy i do not care if i didnt remove it because i dont give a single shit  and it's not prod*/
     cloudflareCaptchaKey: process.env.GOOGLE_CAPTCHA_SITE_KEY || "0x4AAAAAAA5YgONz13byvpGB"
   };

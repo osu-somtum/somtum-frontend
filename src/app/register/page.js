@@ -58,7 +58,7 @@ export default function RegisterPage() {
                                 className="p-2 border rounded-lg bg-slate-500/50 border-slate-500/50 border text-white"
                                 required
                             />
-                            <p className="text-sm text-white">Already have an account? <a className="text-yellow-400" href="/login">Login Here.</a></p>
+                            <p className="text-sm text-white">Already have an account? <a className="text-blue-400" href="/login">Login Here.</a></p>
                             <div className="flex justify-center">
                                 <Turnstile
                                     sitekey={cloudflareCaptchaKey}
