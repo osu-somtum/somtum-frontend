@@ -41,8 +41,8 @@ export default async function UserProfile({ params }) {
                 <div className="flex items-center">
                     <img src={`https://a.pla-ra.xyz/${userid}`} alt={`${userData?.data?.name}'s profile`} className="sm:items-left w-32 h-32 rounded-full mr-4 inline-block" />
                     <a>
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{userData?.data?.name || 'Loading...'}</h5>
-                    <h5 className="mb-2 text-sm tracking-tight text-gray-400">Previous Name: <h5 className="text-white">{userData?.data?.old_name || 'Loading...'}</h5></h5>
+                    <h className="mb-2 text-2xl font-bold tracking-tight text-white">{userData?.data?.name || 'Loading...'}</h>
+                    <h className="mb-2 text-sm tracking-tight text-gray-400">Previous Name: <a className="text-white">{userData?.data?.old_name || 'Loading...'}</a></h>
                     </a>
                 </div>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">bio test</p>
