@@ -1,4 +1,4 @@
-# Welcome to somtum-frontend!
+# Welcome to somtum-frontend repository!
 
 Frontend for https://somtum.fun/ currently being developed.
 
@@ -14,8 +14,4 @@ If you want to contribute, Feel free to send pull request!
 
 If you encounter broken frontend.
 
-It's because backend `pla-ra.xyz`  is offline. Element such as NavBar and Footer may be broken.
-
-![image](https://github.com/user-attachments/assets/1ae35660-7f06-488e-bb74-52baa728191f)
-
-![image](https://github.com/user-attachments/assets/2069ac33-2e37-4ef4-8759-e2e4079ee832)
+It's because backend `pla-ra.xyz`  is offline. Everythinmg may be broken.
